@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Camera Video with Multiple Projection</title>
+    <script src="./tailwindcss.js"></script>
+</head>
+<body class="bg-teal-200">
+    <div>
+        <div class="absolute top-[50%] left-[50%] translate-y-[-50%] w-[1500px]  text-[#ede7e3]
+            translate-x-[-50%] rounded-lg  text-xl text-[1.5rem] drop-shadow-5lg shadow-[#1E293B] bg-[#808080]">
+            
+            <!-- for screens -->
+            <div class="flex justify-between w-[100%]">
+                <!-- part: video live -->
+                <div class="wrapper w-[50%] p-2.5">
+                    <canvas id="canvasVideoLive" class="w-[100%] aspect-[5/3] rounded-lg
+                    bg-[#ecf8f8] border-[#eff7f6] border-[2px] "></canvas>
+                    <!-- display button -->
+                    <div class="w-[50%] mt-[10px] rounded-[99px] text-[#3C3C3C] m-auto">
+                        <p class="py-[2.5%] text-[20px] w-full"> Canvas 👻: Please show your face on me</p>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <button id="switchButton" class="bg-green-500 text-white text-[20]
+                        w-[10rem] mb-[2.5%] py-[0.7%] rounded-[40px] text-4xl ">Play</button>
+                    </div>
+                </div>
+                
+                <!-- part: multiple screen -->
+                <div class="GridVideo w-[50%] p-2.5">
+                    <p id="project" class="underTV w-[600px] bg-black text-4xl m-auto text-center rounded">Multiple Projection with Canvases</p> 
+                    <canvas id="canvasMultiScreens" class="w-[100%] aspect-[5/3] bg-[#ecf8f8] rounded-lg
+                    border-[#eff7f6] border-[2px]"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var isPlaying = true;
+        document.getElementById("switchButton").addEventListener("click", playOrPause);
+        
+        
+        function playOrPause() {
+            var switchButton = document.getElementById("switchButton");
+            if (isPlaying) {
+                isPlaying = false;
+                switchButton.style.backgroundColor = "#02c39a";
+                switchButton.innerHTML = "Play";
+                switchButton.addEventListener("click", displayVideo);
+            } else {
+                isPlaying = true;
+                switchButton.style.backgroundColor = "#f8e16c";
+                switchButton.innerHTML = "Pause";
+                dswitchButton.addEventListener("click", pauseVideo);
+            }
+        }
+        
+        //access the camera
+        var video = document.createElement("video");
+        video.autoplay = true;
+        
+        navigator.mediaDevices.getUserMedia({
+            audio: false, video: true
+        }).then((stream) => {
+            video.srcObject = stream;
+        }).catch((err) => {
+            console.log("navigator.MediaDevices.getUerMedia error: ", err.message, err.name);
+        });
+        
+        //loop drawing
+        var vdoLive = document.getElementById('canvasVideoLive');
+        var ctxVdoLive = vdoLive.getContext('2d');
+        var multiScreens = document.getElementById('canvasMultiScreens');
+        var ctxMultiScreen = multiScreens.getContext('2d');
+        
+        function displayVideo() {
+            if (isPlaying) {
+                ctxVdoLive.drawImage(video, 0, 0, vdoLive.width, vdoLive.height);
+                ctxMultiScreen.drawImage(video, 0, 0, 213, 240, 0, 0, 99, 74);
+                ctxMultiScreen.drawImage(video, 213, 0, 213, 240, 100, 0, 99, 74);
+                ctxMultiScreen.drawImage(video, 426, 0, 213, 240, 200, 0, 100, 74);
+                ctxMultiScreen.drawImage(video, 0, 240, 213, 240, 0, 75, 99, 75);
+                ctxMultiScreen.drawImage(video, 213, 240, 213, 240, 100, 75, 99, 75);
+                ctxMultiScreen.drawImage(video, 426, 240, 213, 240, 200, 75, 100, 75);
+                setTimeout(displayVideo, 1000 / 30); //video 30fps
+            }
+        }
+        function pauseVideo() {
+            if (!isPlaying) {
+                ctxVdoLive.clearRect(0, 0, vdoLive.width, canvas.height);
+                ctxMultiScreen.clearRect(video, 0, 0, 213, 240, 0, 0, 99, 74);
+                ctxMultiScreen.clearRect(video, 213, 0, 213, 240, 100, 0, 99, 74);
+                ctxMultiScreen.clearRect(video, 426, 0, 213, 240, 200, 0, 100, 74);
+                ctxMultiScreen.clearRect(video, 0, 240, 213, 240, 0, 75, 99, 75);
+                ctxMultiScreen.clearRect(video, 213, 240, 213, 240, 100, 75, 99, 75);
+                ctxMultiScreen.clearRect(video, 426, 240, 213, 240, 200, 75, 100, 75);
+            }
+        }
+    </script>
+</body>
+</html>
