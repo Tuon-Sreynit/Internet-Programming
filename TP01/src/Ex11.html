@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Horizontally</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 70px;
+            margin-bottom: 70px;
+        }
+        .container{
+            width: 70%;
+            aspect-ratio: 2/1;
+            display: flex;
+            flex-direction: column;
+            gap: 1vw;
+            /* height: 720px; */
+            border: 5px solid black;
+            padding:  0 1vw ; 
+            padding-top: 1.5vw;
+
+
+            /* box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.5);  */
+        }
+        .header{
+            width: 100%;
+            height: 20%;
+            /* height: 129px; */
+            background-color: #db8181;
+            font-size: 30px;
+            /* text-align: center;
+            line-height: 129px; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            /* margin: 24px 10px 16px 10px; */
+        }
+        .content-container{
+            height: 100%;
+            display: grid;
+            /* grid-template-columns: repeat(14,1fr); */
+            grid-template-rows: 1fr 1fr;
+            grid-auto-flow: column;
+            gap: 22px;
+            /* padding: 22px; */
+            /* margin: 22px; */
+            overflow-x: scroll;
+            overflow-y: hidden;
+            padding-bottom: 3vw;
+
+        }
+        .content{
+            background-color: #84cb79;
+            width: 209px;
+            height: 209px;
+            /* overflow-y: auto; */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            Scroll Horizontally
+        </div>
+        <div class="content-container">
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+            <div class="content"></div>
+        </div>
+    </div>
+</body>
+</html>

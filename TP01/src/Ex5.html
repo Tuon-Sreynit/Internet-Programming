@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Grid Column and Row</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .grid{
+        width: 500px;
+        /* height: 300px; */
+        background-color: gainsboro;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 0.15rem;
+        /* margin: auto; */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .box{
+        width: 100%;
+        /* height: 10px; */
+        text-align: center;
+        background-color: rgb(32, 178, 170);
+        /* margin: 5px; */
+        /* display: grid; */
+        padding: 0.6rem 0;
+        border-radius: 0.3rem;
+        
+    }
+    /* .grid .box{
+        grid-row: 3;
+        grid-column: 4;
+    } */
+</style>
+<body>
+    <div class="grid">
+        <div class="box">😜</div>
+        <div class="box">😜</div>
+        <div class="box">😜</div>
+        <div class="box">😜</div>
+        <div class="box">😜</div>
+        <div class="box">😜</div>
+        <div class="box">😜</div>
+        <div class="box">😜</div>
+        <div class="box">😜</div>
+        <div class="box">😜</div>
+        <div class="box">😜</div>
+        <div class="box">😜</div>
+        <div class="box">😜</div>
+    </div>
+</body>
+</html>

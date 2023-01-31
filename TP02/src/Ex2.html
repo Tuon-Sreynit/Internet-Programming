@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runaway Button</title>
+    <script src="./dist/tween.umd.js"></script>
+    <script src="./tailwindcss.js"></script>
+</head>
+<body class=" bg-indigo-300">
+    <div>
+        <button class="btn bg-white w-[200px] h-[50px] 
+        text-[30px] text-center rounded-[12px]" 
+        id="btn" onmouseover="run()">Click Me🤣</button>
+    </div>
+    
+    <script>
+        var sqrt = document.getElementById("btn")
+        var start = [0, 0]
+
+        function render(x, y) {
+        sqrt.style.position = 'absolute';
+        sqrt.style.top = x + 'px';
+        sqrt.style.left = y + 'px';
+        sqrt.style.color = "white";
+        sqrt.style.background = '#'+Math.floor(Math.random()*1000000).toString(16);
+        sqrt.style.height = Math.floor(Math.random() * (45 - 2 + 1)) + 6 + 'px';
+        sqrt.style.width = Math.floor(Math.random() * (150 - 51 + 1)) + 100 + 'px';
+        }
+
+        function animate() {
+        requestAnimationFrame(animate)
+        TWEEN.update()
+        }
+        requestAnimationFrame(animate)
+
+        const moveFromSourceToDest = (startX, startY, EndX, EndY) => {
+        const coords = { x: startX, y: startY }
+        const tween = new TWEEN.Tween(coords)
+            .to({ x: EndX, y: EndY }, 1000)
+            .easing(TWEEN.Easing.Quadratic.Out)
+            .onUpdate(() => {
+                render(coords.x, coords.y)
+                start[0] = coords.x
+                start[1] = coords.y
+            })
+            .start()
+        }
+
+        function run() {
+        const rundx = Math.floor(Math.random() * document.documentElement.clientHeight * 1) 
+        const rundy = Math.floor(Math.random() * document.documentElement.clientWidth * 1)
+        moveFromSourceToDest(start[0], start[1], rundx, rundy)
+        }
+    </script>
+</body>
+</html>

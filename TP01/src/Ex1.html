@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Layout</title>
+</head>
+<style>
+    .container{
+        width: 700px;
+        height: 550px;
+        border: 2px solid black;
+        margin: auto;
+        position: absolute;
+        top:50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+        box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);
+        
+    }
+    .row1{
+        width: 100%;
+        height: 25%;
+        display: flex;
+    }
+    .row{
+        width: 100%;
+        height: 75%;
+        display: flex;
+    }
+    .column3{
+        /* display: flex; */
+        /* margin-top: 12px; */
+        width: 150px;
+        height: 100%;
+        /* display: flex; */
+    }
+    .column1{
+        width: 150px;
+        /* height: 150px; */
+        background-color: rgb(219, 129, 129);
+    }
+    .column2{
+        width: 550px;
+        /* height: 150px; */
+        background-color: rgb(198, 198, 198);
+    }
+    .row2{
+        width: 150px;
+        height: 50%;
+        background-color: rgb(151, 111, 216);
+    }
+    .column4{
+        width: 100%;
+        display: flex;
+        background-color: rgb(248, 122, 122);
+    } 
+</style>
+<body>
+    <div class="container">
+        <div class="row1">
+            <div class="column1"></div>
+            <div class="column2"></div>
+        </div>
+        <div class="row">
+            <div class="column3">
+                <div class="row2" style="background-color: rgb(132, 203, 121);"></div>
+                <div class="row2"></div>
+            </div>
+            <div class="column4" style="background-color: rgb(121, 154, 203);"></div>
+            <div class="column4" style="background-color:rgb(203, 121, 175);"></div>
+            <div class="column4"></div>
+        </div>
+    </div>
+</body>
+</html>

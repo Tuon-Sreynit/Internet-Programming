@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Camera Video</title>
+    <script src="./tailwindcss.js"></script>
+</head>
+<body class="bg-blue-200">
+    <div class="absolute top-[50%] left-[50%] translate-y-[-50%] w-[50%] text-[#ede7e3]
+        translate-x-[-50%] rounded-lg text-xl text-[30px] drop-shadow-5lg shadow-[#1E293B] bg-neutral-500">
+        <div>
+            <canvas id="canvasVideoLive" class="w-[95%] aspect-[5/3]
+            bg-[#eff7f6] border-2-[#ECF8F8] rounded-lg m-auto"></canvas>
+        </div>
+        <div class="mt-[0.25%]  mb-[10px] w-[60%] mx-auto rounded-b-[10px]">
+            <center>
+                <p class="py-[1.5%] text-white mx-[100px] mx-auto w-[80%]">
+                    Canvas 👻: Please show your face on me
+                </p>
+                <div class="w-[2.5%] h-[2.5%] bg-[#3C3C3C]"></div>
+                <button id="switchButton" class="bg-green-500 text-white text-[30px] mt-[7%] 
+                w-[150px] mb-[2.5%] py-[0.5%] rounded-[50px]"> Play
+                </button>
+            </center>
+        </div>
+    </div>
+
+    <script>
+        var isPlaying = true;
+        document.getElementById("switchButton").addEventListener("click", playOrPause);
+        
+        function playOrPause() {
+            var switchButton = document.getElementById("switchButton");
+            if (isPlaying) {
+                isPlaying = false;
+                switchButton.style.background = "#22C55E"; 
+                switchButton.innerHTML = "Contiune";
+                switchButton.addEventListener("click", displayVideo);
+            } else {
+                isPlaying = true;
+                switchButton.style.background = "#ffc300";
+                switchButton.innerHTML = "Pause";
+                dswitchButton.addEventListener("click", pauseVideo);
+            }
+        }
+        
+        //access the camera
+        var video = document.createElement("video");
+        video.autoplay = true;
+        
+        navigator.mediaDevices.getUserMedia({
+            audio: false, video: true
+        }).then((stream) => {
+            video.srcObject = stream;
+        }).catch((err) => {
+            console.log("navigator.MediaDevices.getUerMedia error: ", err.message, err.name);
+        });
+        
+        //loop drawing
+        var vdoLive = document.getElementById('canvasVideoLive');
+        var ctxVdoLive = vdoLive.getContext('2d');
+        
+        function displayVideo() {
+            if (isPlaying) {
+                ctxVdoLive.drawImage(video, 0, 0, vdoLive.width, vdoLive.height);
+                setTimeout(displayVideo, 1000 / 30); //video 30fps
+            }
+        } 
+        function pauseVideo() {
+            if (!isPlaying) {
+                ctxVdoLive.clearRect(0, 0, vdoLive.width, vdoLive.height);
+            }
+        }   
+    </script>
+</body>
+</html>
