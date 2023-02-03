@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do_List With LocalStorage</title>
+    <link rel="stylesheet" href="./Ex1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row1">To-do List with LocalStorage</div>
+        <div class="row2">
+            <div class="col">Task title<input class="input" placeholder="Enter title" id="taskTitle"></div>
+            <div class="col">Assignee<input class="input" placeholder="Enter Assignee" id="assignee"></div>
+            <div class="col">Dateline<input class="input" placeholder="Enter dateline" id="dateline"></div>
+            <div class="col">&nbsp; <br><input onclick="addData()" type="submit" id="add-newTask" value="Add" class="button">
+            </div>
+        </div>
+    </div>
+    <script src="./Ex1.js"></script>
+</body>
+</html>

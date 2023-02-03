@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Itim&amp;display=swap");
+:root {
+    --font-main:"Comic Sans MS", cursive;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    background-color: #5F9EA0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body .container {
+    display: flex;
+    justify-content: center;
+    border: 3px solid black;
+    align-items: center;
+    flex-direction: column;
+    width: 60vw;
+    min-height: 80vh;
+    background-color: #FFDAB9;
+    margin-top: 5rem;
+}
+@media only screen and (max-width: 50%) {
+    body .container {
+        width: 90%;
+    }
+}
+body .container h1 {
+    font-family: var(--font-main);
+    font-size: 4rem;
+    color:#0000CD;
+}
+body .container  > span {
+    font-size: 3.5rem;
+    color: #556B2F;
+}
+body .container .wrapper button + button {
+    margin-left: 0.7rem;
+}
+body .container .wrapper button {
+    padding: 0.3rem 0.7rem;
+    background-color: #FFDAB9;
+    border-radius: 4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 250ms;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+@media only screen and (max-width: 600px) {
+    body .container .wrapper button {
+        font-size: 0.9rem;
+    }
+}
+body .container .wrapper button.increase {
+    background-color:#87CEEB;
+    color: white;
+}
+body .container .wrapper button.increase:hover {
+    background-color: #BC8F8F;
+    color: blue;
+}
+body .container .wrapper button.decrease {
+    background-color:#87CEEB;
+    color: white;
+}
+body .container .wrapper button.decrease:hover {
+    background-color: #BC8F8F;
+    color: blue;
+}
+body .container .wrapper button.reset {
+    background-color:#87CEEB;
+    color: red;
+}
+body .container .wrapper button.reset:hover {
+    background-color: red;
+    color: white;
+}
+body .container .wrapper button:hover {
+    background-color: #222222;
+    color: white;
+}/*# sourceMappingURL=style.css.map */
