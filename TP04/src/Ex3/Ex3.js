@@ -1,10 +1,10 @@
 //set initial count
-let count=0;
+let count=window.localStorage.getItem("count")!=null ?window.localStorage.getItem("count"):0 ;
 
 //set value and buttons
 const value=document.querySelector("#value");
 const buttons=document.querySelectorAll(".btn");
-
+value.textContent=count;
 buttons.forEach(function(button){
     button.addEventListener('click', function(e){
         const styles=e.currentTarget.classList;
@@ -16,7 +16,12 @@ buttons.forEach(function(button){
         }
         else{
             count=0;
+            
         }
+        save()
         value.textContent=count;
     })
 });
+const save=()=>{
+    window.localStorage.setItem("count",count)
+}
