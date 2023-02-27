@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See Details</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            width: 60%;
+            height: 80vh;
+            border: 5px solid black;
+        }
+        .container .section1, .section2{
+            width: 100%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .container .section1{
+            justify-content: center;
+            color: white;
+            background-color: rgb(71, 78, 93);
+        }
+        .container .section2{
+            padding-top: 20px;
+            justify-content: start;
+        }
+        .container .section2 div{
+            width: 150px;
+            height: 150px;
+            background-color: palevioletred;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container .section2 p{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    </div>
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get('id')
+        const getData = (()=>{
+            fetch(`https://jsonplaceholder.typicode.com/photos/${id}`).then(res=>res.json()).then(data=>{
+                document.querySelector('.container').innerHTML =`
+                    <div class="section1">
+                        <h2>${data.title}</h2>
+                        <p>${data.id}</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    </div>
+                    <div class="section2">
+                        <p>${data.id}</p>
+                        <div>
+                            <img src="${data.thumbnailUrl}" alt="album-${data.id}">
+                        </div>
+                    </div>
+                `
+            })
+        })()
+    </script>
+</body>
+</html>

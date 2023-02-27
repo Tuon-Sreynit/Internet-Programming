@@ -1,0 +1,23 @@
+body{
+    font-family: cursive;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+.wrapper{
+    font-family: monaco, monospace;
+    display: flex;
+    gap: 1rem;
+}
+
+.wrapper_btn{
+    color: rgb(10, 63, 237);
+    width: 4%;
+    display: flex;
+}

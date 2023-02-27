@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nationality Guessing</title>
+    <script src="../tailwindcss.js"></script>
+    <link rel="stylesheet" href="./Ex3.css">
+    <script src="./Ex3.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-[8rem] text-center">🌏</h1>
+        <h2 class="text-[3.5rem] text-center">I know you <span class="text-blue-600">Home</span></h2>
+        <div class="wrapper flex">
+            <div>
+                <input type="text" placeholder="Tell me your first name" class=" w-[22rem] px-[50px] py-[10px] text-[1.2rem]
+                 border-2 rounded-lg my-[20px] border-zinc-900 " id="inputName">
+            </div>
+            <div>
+                <button class="bg-blue-500 px-[40px] py-[10px] text-[1.2rem] text-white rounded-lg my-[26px] mx-[10px]" onclick="getDataofNameInput()">
+                    Guess</button>
+                </div>
+                <div  id="loading-text" hidden ></div>
+            </div>
+        </div>
+        <div class=" mx-[22rem] mb-[20%]" id="countryList">
+            <!-- <div>
+                <div id="country" class="text-orange-500 text-[3rem] text-center"></div>
+                <div id="percent" class="text-blue-700 text-[4rem] text-center"></div>
+            </div> -->
+            
+        </div>
+    </div>
+ 
+</body>
+</html>

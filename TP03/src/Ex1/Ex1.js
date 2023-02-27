@@ -13,9 +13,11 @@ const addData=()=>{
     taskArr.push(
         { name: "Create Project", assignee: "Tola", date: "24/2/2022" }
     )
+    
 
     localStorage.setItem("renderList",JSON.stringify("renderList"))
     renderList();
+    addData();
 }
 function renderList() {
         
